@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Print styles ─────────────────────────────────────────────────────────── */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* Hide all UI chrome */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Show only the document preview */
+  body > * {
+    display: none !important;
+  }
+
+  #print-root {
+    display: block !important;
+  }
+
+  /* Each A4 page copy gets a page break */
+  .print-page {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .print-page:last-child {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+}
